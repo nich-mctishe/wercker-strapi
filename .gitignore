@@ -1,0 +1,3 @@
+*.DS_Store
+.wercker
+data/mongo

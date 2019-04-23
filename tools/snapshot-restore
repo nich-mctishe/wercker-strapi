@@ -1,0 +1,1 @@
+mongorestore --db api --host $MONGO_PORT_27017_TCP_ADDR --drop $WERCKER_ROOT/data/mongo/api
