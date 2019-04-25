@@ -1,0 +1,35 @@
+{
+  "connection": "default",
+  "collectionName": "items",
+  "info": {
+    "name": "items",
+    "description": "These are the items that appear in your orders"
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "product": {
+      "model": "products"
+    },
+    "size": {
+      "enum": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "type": "enumeration"
+    },
+    "quantity": {
+      "type": "integer"
+    },
+    "total-cost": {
+      "type": "decimal"
+    },
+    "order": {
+      "model": "orders",
+      "via": "items"
+    }
+  }
+}

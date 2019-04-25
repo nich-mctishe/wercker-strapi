@@ -1,0 +1,62 @@
+{
+  "connection": "default",
+  "collectionName": "orders",
+  "info": {
+    "name": "orders",
+    "description": "These are the orders customers have placed on your site"
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "number": {
+      "type": "string"
+    },
+    "cost": {
+      "type": "decimal"
+    },
+    "date-placed": {
+      "type": "date"
+    },
+    "date-paid-for": {
+      "type": "date"
+    },
+    "date-shipped": {
+      "type": "date"
+    },
+    "instructions": {
+      "type": "text"
+    },
+    "paid": {
+      "type": "boolean"
+    },
+    "items": {
+      "collection": "items",
+      "via": "order"
+    },
+    "billing-address": {
+      "type": "text"
+    },
+    "shipping-address": {
+      "type": "text"
+    },
+    "firstname": {
+      "type": "string"
+    },
+    "lastname": {
+      "type": "string"
+    },
+    "stripe-token": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "contact-time": {
+      "type": "string"
+    }
+  }
+}

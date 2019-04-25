@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/lookbooks",
+      "handler": "Lookbook.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/lookbooks/count",
+      "handler": "Lookbook.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/lookbooks/:_id",
+      "handler": "Lookbook.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/lookbooks",
+      "handler": "Lookbook.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/lookbooks/:_id",
+      "handler": "Lookbook.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/lookbooks/:_id",
+      "handler": "Lookbook.destroy",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

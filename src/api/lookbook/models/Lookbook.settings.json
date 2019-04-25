@@ -1,0 +1,38 @@
+{
+  "connection": "default",
+  "collectionName": "lookbook",
+  "info": {
+    "name": "lookbook",
+    "description": "These are the look book collections for the site\n"
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "year": {
+      "type": "date"
+    },
+    "season": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "images": {
+      "collection": "file",
+      "via": "related",
+      "plugin": "upload"
+    },
+    "key-visual": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload"
+    }
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "connection": "default",
+  "collectionName": "products",
+  "info": {
+    "name": "products",
+    "description": "Products available for purchase"
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "price": {
+      "type": "decimal"
+    },
+    "images": {
+      "collection": "file",
+      "via": "related",
+      "plugin": "upload"
+    },
+    "active": {
+      "type": "boolean"
+    },
+    "x-sells": {
+      "collection": "products",
+      "via": "x_sells",
+      "dominant": true
+    },
+    "x_sells": {
+      "collection": "products",
+      "via": "x-sells"
+    },
+    "featured-in": {
+      "model": "lookbook"
+    }
+  }
+}

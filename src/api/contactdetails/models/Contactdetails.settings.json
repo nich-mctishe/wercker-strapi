@@ -1,0 +1,25 @@
+{
+  "connection": "default",
+  "collectionName": "",
+  "info": {
+    "name": "contactdetails",
+    "description": "here are the fields that will appear on any contact page"
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "detail": {
+      "type": "text"
+    },
+    "meta": {
+      "type": "string"
+    }
+  }
+}
