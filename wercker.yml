@@ -27,6 +27,10 @@ dev:
       code: |
         apt-get update && apt-get install -y mongodb
     - script:
+      name: install global strapi for dev
+      code: |
+        npm install -g strapi@alpha
+    - script:
       name: install dependencies
       code: HOME=$YARN_CACHE yarn
       cwd: $WERCKER_ROOT/src
@@ -48,7 +52,8 @@ dev:
         name: run
         code: |
           touch /var/log/strapi.log
-          yarn start >> /var/log/strapi.log 2>&1 &
+          # yarn start >> /var/log/strapi.log 2>&1 &
+          strapi start >> /var/log/strapi.log 2>&1 &
         cwd: $WERCKER_ROOT/src
     - internal/shell:
         code: |
