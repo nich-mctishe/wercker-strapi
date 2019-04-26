@@ -56,5 +56,8 @@
     "enabled": false,
     "whiteList": [],
     "blackList": []
+  },
+  "xssProtection": {
+    "enabled": true
   }
 }

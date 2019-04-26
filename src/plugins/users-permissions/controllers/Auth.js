@@ -24,6 +24,7 @@ module.exports = {
     });
 
     if (provider === 'local') {
+
       if (!_.get(await store.get({key: 'grant'}), 'email.enabled') && !ctx.request.admin) {
         return ctx.badRequest(null, 'This provider is disabled.');
       }
@@ -80,7 +81,7 @@ module.exports = {
         return ctx.badRequest(null, ctx.request.admin ? [{ messages: [{ id: 'Auth.form.error.invalid' }] }] : 'Identifier or password invalid.');
       } else {
         ctx.send({
-          jwt: strapi.plugins['users-permissions'].services.jwt.issue(_.pick(user.toJSON ? user.toJSON() : user, ['_id', 'id'])),
+          jwt: strapi.plugins['users-permissions'].services.jwt.issue(_.pick(user.toJSON ? user.toJSON() : user, ['_id', 'id']), user.role.type === 'order_placer' ? { expiresIn: 120 } : {}),
           user: _.omit(user.toJSON ? user.toJSON() : user, ['password', 'resetPasswordToken'])
         });
       }
