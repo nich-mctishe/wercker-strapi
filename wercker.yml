@@ -69,10 +69,6 @@ build:
         name: run tests
         cwd: $WERCKER_ROOT/src
     - script:
-        name: run webpack
-        code: npm run webpack -- -p
-        cwd: $WERCKER_ROOT/src
-    - script:
         name: export the application
         code: |
           cp -r "$WERCKER_ROOT/src" "$WERCKER_OUTPUT_DIR"
