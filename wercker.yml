@@ -74,7 +74,6 @@ build:
           cp -r "$WERCKER_ROOT/src" "$WERCKER_OUTPUT_DIR"
           cp -r "$WERCKER_ROOT/dokku" "$WERCKER_OUTPUT_DIR"
           mv "$WERCKER_OUTPUT_DIR/dokku/Dockerfile" "$WERCKER_OUTPUT_DIR/Dockerfile"
-          cp "$WERCKER_ROOT/tools/healthcheck" "$WERCKER_OUTPUT_DIR/healthcheck"
           rm -rf "$WERCKER_OUTPUT_DIR/src/node_modules"
           rm -rf "$WERCKER_OUTPUT_DIR/src/public/css"
     - npm-install:
