@@ -14,4 +14,4 @@ ENV NODE_ENV production
 
 # CMD [ "npm", "start" ]
 
-ENTRYPOINT ["./entrypoint.sh"]
+ENTRYPOINT ["/entrypoint.sh"]
