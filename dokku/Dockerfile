@@ -2,7 +2,7 @@ FROM node:10.15.0
 
 COPY src /src
 COPY dokku/CHECKS /src/CHECKS
-COPY dokku/entrypoint.sh /
+COPY dokku/entrypoint.sh /entrypoint.sh
 
 RUN npm install -g strapi@alpha
 
