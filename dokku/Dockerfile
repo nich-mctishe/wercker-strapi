@@ -3,7 +3,7 @@ FROM node:10.15.0
 COPY src /src
 COPY dokku/CHECKS /src/CHECKS
 
-RUN npm install -g strapi@alpha
+# RUN npm install -g strapi@alpha
 
 EXPOSE 80
 
