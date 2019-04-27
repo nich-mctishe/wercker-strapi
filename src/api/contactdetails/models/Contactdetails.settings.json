@@ -1,6 +1,6 @@
 {
   "connection": "default",
-  "collectionName": "",
+  "collectionName": "contactdetails",
   "info": {
     "name": "contactdetails",
     "description": "here are the fields that will appear on any contact page"
@@ -10,13 +10,15 @@
   },
   "attributes": {
     "name": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "slug": {
       "type": "string"
     },
     "detail": {
-      "type": "text"
+      "type": "text",
+      "required": true
     },
     "meta": {
       "type": "string"

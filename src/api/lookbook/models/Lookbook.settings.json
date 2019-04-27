@@ -10,7 +10,8 @@
   },
   "attributes": {
     "name": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "slug": {
       "type": "string"
@@ -27,12 +28,14 @@
     "images": {
       "collection": "file",
       "via": "related",
-      "plugin": "upload"
+      "plugin": "upload",
+      "required": true
     },
     "key-visual": {
       "model": "file",
       "via": "related",
-      "plugin": "upload"
+      "plugin": "upload",
+      "required": true
     }
   }
 }

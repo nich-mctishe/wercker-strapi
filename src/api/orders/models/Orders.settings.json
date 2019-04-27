@@ -13,7 +13,8 @@
       "type": "string"
     },
     "cost": {
-      "type": "decimal"
+      "type": "decimal",
+      "required": true
     },
     "date-placed": {
       "type": "date"
@@ -35,28 +36,37 @@
       "via": "order"
     },
     "billing-address": {
-      "type": "text"
+      "type": "text",
+      "required": true
     },
     "shipping-address": {
-      "type": "text"
+      "type": "text",
+      "required": true
     },
     "firstname": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "lastname": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "stripe-token": {
       "type": "string"
     },
     "email": {
-      "type": "email"
+      "type": "email",
+      "required": true
     },
     "phone": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "contact-time": {
       "type": "string"
+    },
+    "shipped": {
+      "type": "boolean"
     }
   }
 }

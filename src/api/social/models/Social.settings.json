@@ -1,6 +1,6 @@
 {
   "connection": "default",
-  "collectionName": "",
+  "collectionName": "social",
   "info": {
     "name": "social",
     "description": "social media links and images"
@@ -10,15 +10,18 @@
   },
   "attributes": {
     "name": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "url": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "icon": {
       "model": "file",
       "via": "related",
-      "plugin": "upload"
+      "plugin": "upload",
+      "required": true
     }
   }
 }

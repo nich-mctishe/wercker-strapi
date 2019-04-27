@@ -1,5 +1,7 @@
 'use strict';
 
+const slugify = require('slugify')
+
 /**
  * Lifecycle callbacks for the `Contactdetails` model.
  */
@@ -8,6 +10,12 @@ module.exports = {
   // Before saving a value.
   // Fired before an `insert` or `update` query.
   // beforeSave: async (model) => {},
+  beforeSave: async (model) => {
+    // update slug to be title
+    if (!model.slug) {
+      model.slug = slugify(model.name)
+    }
+  }
 
   // After saving a value.
   // Fired after an `insert` or `update` query.

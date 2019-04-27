@@ -10,7 +10,8 @@
   },
   "attributes": {
     "Name": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "slug": {
       "type": "string"
@@ -19,7 +20,8 @@
       "type": "text"
     },
     "price": {
-      "type": "decimal"
+      "type": "decimal",
+      "required": true
     },
     "images": {
       "collection": "file",
@@ -40,6 +42,9 @@
     },
     "featured-in": {
       "model": "lookbook"
+    },
+    "sku": {
+      "type": "string"
     }
   }
 }

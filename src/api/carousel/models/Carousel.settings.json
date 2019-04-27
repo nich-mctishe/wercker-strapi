@@ -1,6 +1,6 @@
 {
   "connection": "default",
-  "collectionName": "",
+  "collectionName": "carousel",
   "info": {
     "name": "carousel",
     "description": "This is the content for the homepage carousel"
@@ -10,7 +10,8 @@
   },
   "attributes": {
     "name": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "description": {
       "type": "text"
@@ -18,7 +19,8 @@
     "image": {
       "model": "file",
       "via": "related",
-      "plugin": "upload"
+      "plugin": "upload",
+      "required": true
     },
     "link": {
       "type": "string"

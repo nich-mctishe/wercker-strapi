@@ -19,10 +19,12 @@
         "L",
         "XL"
       ],
-      "type": "enumeration"
+      "type": "enumeration",
+      "required": true
     },
     "quantity": {
-      "type": "integer"
+      "type": "integer",
+      "required": true
     },
     "total-cost": {
       "type": "decimal"
