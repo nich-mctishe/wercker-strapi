@@ -11,4 +11,4 @@ WORKDIR /src
 
 ENV NODE_ENV production
 
-CMD [ "node", "server" ]
+CMD [ "npm", "start" ]
