@@ -1,7 +1,7 @@
 #!/bin/sh
 
-ls -lah
+ls -lah ../
 
-which strapi
+npm install
 
 npm start
