@@ -4,7 +4,7 @@ env
 
 npm install
 
-npm run postinstall
+# npm run postinstall
 
 # npm link strapi-helper-plugin
 
