@@ -8,6 +8,6 @@ npm run postinstall
 
 npm link strapi-helper-plugin
 
-npm run setup --plugins
+# npm run setup --plugins
 
 strapi start
