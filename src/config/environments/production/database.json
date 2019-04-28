@@ -7,9 +7,9 @@
         "client": "mongo",
         "host": "${process.env.DOKKU_MONGO_STRAPI_DB_PORT_27017_TCP_ADDR || '172.17.0.2'}",
         "port": "${process.env.DOKKU_MONGO_STRAPI_DB_PORT_27017_TCP_PORT || 27017}",
-        "database": "strapi_db",
-        "username": "strapi_db",
-        "password": "ac88701fa8c5c51ff2e1951e9b76ea7a"
+        "database": "api",
+        "username": "${process.env.DB_USERNAME}",
+        "password": "${process.env.DB_PASSWORD}"
       },
       "options": {}
     }
