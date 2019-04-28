@@ -5,11 +5,11 @@
       "connector": "strapi-hook-mongoose",
       "settings": {
         "client": "mongo",
-        "host": "138.68.167.36",
-        "port": "6219",
+        "host": "${process.env.MONGO_PORT_27017_TCP_ADDR || '127.0.0.1'}",
+        "port": "${process.env.MONGO_PORT_27017_TCP_PORT || 27017}",
         "database": "api",
-        "username": "api",
-        "password": "8949adbac7ba7aac482cdf75a75a15b2"
+        "username": "",
+        "password": ""
       },
       "options": {}
     }
