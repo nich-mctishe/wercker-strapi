@@ -2,12 +2,14 @@
 
 env
 
-npm install
+ls -lah 
 
-npm run postinstall
+npm install --production
+
+# npm run postinstall
 
 # npm link strapi-helper-plugin
 
 # npm run setup --plugins
 
-strapi start
+NODE_ENV=production npm start
