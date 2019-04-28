@@ -1,6 +1,6 @@
 #!/bin/sh
 
-ls -lah ../
+env
 
 npm install
 
