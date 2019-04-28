@@ -10,11 +10,6 @@
 
 process.chdir(__dirname);
 
-console.log('DOKKU_MONGO_API_PORT_27017_TCP_ADDR', process.env.DOKKU_MONGO_API_PORT_27017_TCP_ADDR);
-console.log('DOKKU_MONGO_API_PORT_27017_TCP_PORT', process.env.DOKKU_MONGO_API_PORT_27017_TCP_PORT);
-console.log('DB_USERNAME', process.env.DB_USERNAME);
-console.log('DB_PASSWORD', process.env.DB_PASSWORD);
-
 (() => {
   const strapi = require('strapi');
   strapi.start();
