@@ -1,0 +1,30 @@
+{
+  "connection": "default",
+  "collectionName": "",
+  "info": {
+    "name": "deliveryoptions",
+    "description": "This list is for setting possible delivery options"
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "cost": {
+      "type": "decimal",
+      "required": true
+    },
+    "provider": {
+      "type": "text"
+    },
+    "default": {
+      "type": "boolean"
+    },
+    "service": {
+      "type": "text"
+    },
+    "countries": {
+      "required": true,
+      "type": "string"
+    }
+  }
+}

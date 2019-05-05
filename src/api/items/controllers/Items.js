@@ -57,6 +57,24 @@ module.exports = {
   },
 
   /**
+   * Create a/an items record.
+   *
+   * @return {Object}
+   */
+  createMany: async (ctx) => {
+    const items = cxt.request.items
+    const rtn = []
+
+    for (var i = 0; i < items.length; i++) {
+      const item = await strapi.services.items.add(items[i])
+
+      rtn.push(item)
+    }
+
+    return rtn
+  },
+
+  /**
    * Update a/an items record.
    *
    * @return {Object}
@@ -74,5 +92,16 @@ module.exports = {
 
   destroy: async (ctx, next) => {
     return strapi.services.items.remove(ctx.params);
+  },
+
+  /**
+   * Destroy many items records.
+   *
+   * @return {Object}
+   */
+  destroyMany: async (ctx, next) => {
+    for (var i = 0; i < ctx.params.items.length; i++) {
+      await strapi.services.items.remove({ _id: ctx.request.body.items[i] })
+    }
   }
 };

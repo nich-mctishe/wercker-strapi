@@ -1,0 +1,89 @@
+<table width="400" style="width: 400px; padding: 0; margin: 0" cellpadding="0" cellspacing="0" align="center">
+  <tr align="center">
+    <td>
+      <table width="400" style="width: 400px; padding: 0; margin: 0" cellpadding="0" cellspacing="0" align="center">
+        <tr align="left">
+          <td width="200" style="width: 200px;font-size: 14px">
+            {{intro}}
+          </td>
+        </tr>
+        <tr>
+          <td height="30" style="height: 30px">
+            <img src="https://res.cloudinary.com/rashaswais/image/upload/v1556829588/misc/spacer_etctoo.gif" width="1" height="1" style="width:1px;height:1px" alt="">
+          </td>
+        </tr>
+        <!-- receipt -->
+        <tr align="center">
+          <td>
+            <table width="100%" style="width: 100%; padding: 0; margin: 0" cellpadding="0" cellspacing="0" align="center">
+              <!-- intro -->
+              <tr>
+                <td>
+                  <table width="100%" style="width: 100%; padding: 0; margin: 0" cellpadding="0" cellspacing="0" align="center">
+                    <tr>
+                      <td width="70%" style="width: 70%; font-weight: bold; font-size: 16px; color: #666666; vertical-align: top" valign="top">
+                        ORDER SUMMARY
+                      </td>
+                      <td width="30%" style="width: 30%; vertical-align: top; text-align: right" valign="top" align="right">
+                        {{date}}<br>{{time}}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td height="30" style="height: 30px">
+                  <img src="https://res.cloudinary.com/rashaswais/image/upload/v1556829588/misc/spacer_etctoo.gif" width="1" height="1" style="width:1px;height:1px" alt="">
+                </td>
+              </tr>
+              <tr>
+                <td height="30" style="height: 30px; line-height: 40px">
+                  Product Information
+                  <br>
+                  <hr style="color: #b5b5b5">
+                </td>
+              </tr>
+              <tr>
+                <td height="30" style="height: 30px">
+                  <img src="https://res.cloudinary.com/rashaswais/image/upload/v1556829588/misc/spacer_etctoo.gif" width="1" height="1" style="width:1px;height:1px" alt="">
+                </td>
+              </tr>
+              <!-- breakdown -->
+              <tr>
+                <td>
+                  <table width="100%" style="width: 100%; padding: 0; margin: 0" cellpadding="0" cellspacing="0" align="center">
+                    {{items}}
+                    <tr style="line-height: 40px">
+                      <td width="70%" style="width: 70%">
+                        Subtotal
+                      </td>
+                      <td width="30%" style="width: 30%; text-align: right" align="right">
+                        £{{subtotal}}
+                      </td>
+                    </tr>
+                    <tr style="line-height: 40px">
+                      <td width="70%" style="width: 70%">
+                        Delivery <span style="font-size: 12px">{{deliveryService}}</span>
+                      </td>
+                      <td width="30%" style="width: 30%; text-align: right" align="right">
+                        £{{deliveryCost}}
+                      </td>
+                    </tr>
+                    <tr style="line-height: 40px; font-size: 16px">
+                      <td width="70%" style="width: 70%">
+                        Total
+                      </td>
+                      <td width="30%" style="width: 30%; text-align: right" align="right">
+                        £{{total}}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>

@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/deliveryoptions",
+      "handler": "Deliveryoptions.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/deliveryoptions/count",
+      "handler": "Deliveryoptions.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/deliveryoptions/:_id",
+      "handler": "Deliveryoptions.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/deliveryoptions",
+      "handler": "Deliveryoptions.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/deliveryoptions/:_id",
+      "handler": "Deliveryoptions.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/deliveryoptions/:_id",
+      "handler": "Deliveryoptions.destroy",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

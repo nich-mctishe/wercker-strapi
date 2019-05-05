@@ -23,7 +23,9 @@
     "strapi": "3.0.0-alpha.26",
     "strapi-utils": "3.0.0-alpha.26",
     "strapi-hook-mongoose": "3.0.0-alpha.26",
-    "slugify": "1.3.4"
+    "slugify": "1.3.4",
+    "nodemailer": "6.1.1",
+    "mailgun-js": "0.22.0"
   },
   "author": {
     "name": "nicholasheadlong",

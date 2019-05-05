@@ -33,6 +33,14 @@
       }
     },
     {
+      "method": "POST",
+      "path": "/items/many",
+      "handler": "Items.createMany",
+      "config": {
+        "policies": []
+      }
+    },
+    {
       "method": "PUT",
       "path": "/items/:_id",
       "handler": "Items.update",
@@ -44,6 +52,14 @@
       "method": "DELETE",
       "path": "/items/:_id",
       "handler": "Items.destroy",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/items/many",
+      "handler": "Items.destroyMany",
       "config": {
         "policies": []
       }

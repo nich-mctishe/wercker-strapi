@@ -29,9 +29,8 @@
     "total-cost": {
       "type": "decimal"
     },
-    "order": {
-      "model": "orders",
-      "via": "items"
+    "summary": {
+      "type": "string"
     }
   }
 }

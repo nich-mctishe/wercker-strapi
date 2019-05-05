@@ -1,21 +1,13 @@
 'use strict';
 
-const slugify = require('slugify')
-
 /**
- * Lifecycle callbacks for the `Products` model.
+ * Lifecycle callbacks for the `Deliveryoptions` model.
  */
 
 module.exports = {
   // Before saving a value.
   // Fired before an `insert` or `update` query.
   // beforeSave: async (model) => {},
-  beforeSave: async (model) => {
-    // update slug to be title
-    if (!model.slug || !model.slug.length) {
-      model.slug = slugify(model.name || model.Name).toLowerCase()
-    }
-  }
 
   // After saving a value.
   // Fired after an `insert` or `update` query.

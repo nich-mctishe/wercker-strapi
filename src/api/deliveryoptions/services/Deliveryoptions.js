@@ -1,9 +1,9 @@
 'use strict';
 
-/* global Items */
+/* global Deliveryoptions */
 
 /**
- * Items.js service
+ * Deliveryoptions.js service
  *
  * @description: A set of functions similar to controller's actions to avoid code duplication.
  */
@@ -15,46 +15,60 @@ const { convertRestQueryParams, buildQuery } = require('strapi-utils');
 module.exports = {
 
   /**
-   * Promise to fetch all items.
+   * Promise to fetch all deliveryoptions.
    *
    * @return {Promise}
    */
 
-  fetchAll: async (params, populate) => {
+  fetchAll: (params, populate) => {
     const filters = convertRestQueryParams(params);
-    const populateOpt = await populate || Items.associations
+    const populateOpt = populate || Deliveryoptions.associations
       .filter(ast => ast.autoPopulate !== false)
       .map(ast => ast.alias)
 
-    const query = await buildQuery({
-      model: Items,
+    return buildQuery({
+      model: Deliveryoptions,
       filters,
       populate: populateOpt,
-    })
-
-    return query
+    });
   },
 
   /**
-   * Promise to fetch a/an items.
+   * Promise to fetch a/an deliveryoptions.
    *
    * @return {Promise}
    */
 
   fetch: (params) => {
     // Select field to populate.
-    const populate = Items.associations
+    const populate = Deliveryoptions.associations
       .filter(ast => ast.autoPopulate !== false)
       .map(ast => ast.alias)
       .join(' ');
 
-    return Items
-      .findOne(_.pick(params, _.keys(Items.schema.paths)))
+    return Deliveryoptions
+      .findOne(_.pick(params, _.keys(Deliveryoptions.schema.paths)))
       .populate(populate);
   },
 
   /**
-   * Promise to count items.
+   * Promise to get a/an deliveryoptions and retuern default if not
+   *
+   * @return {Promise}
+   */
+   get: async (country) => {
+     const init = await Deliveryoptions
+      .findOne({ countries:  { "$regex": country || 'United Kingdom', "$options": "i" } })
+      .lean()
+    const fallback = await Deliveryoptions
+      .findOne({ default: true })
+      .lean()
+
+    return init || fallback
+   },
+
+  /**
+   * Promise to count deliveryoptions.
    *
    * @return {Promise}
    */
@@ -63,64 +77,64 @@ module.exports = {
     const filters = convertRestQueryParams(params);
 
     return buildQuery({
-      model: Items,
+      model: Deliveryoptions,
       filters: { where: filters.where },
     })
       .count()
   },
 
   /**
-   * Promise to add a/an items.
+   * Promise to add a/an deliveryoptions.
    *
    * @return {Promise}
    */
 
   add: async (values) => {
     // Extract values related to relational data.
-    const relations = _.pick(values, Items.associations.map(ast => ast.alias));
-    const data = _.omit(values, Items.associations.map(ast => ast.alias));
+    const relations = _.pick(values, Deliveryoptions.associations.map(ast => ast.alias));
+    const data = _.omit(values, Deliveryoptions.associations.map(ast => ast.alias));
 
     // Create entry with no-relational data.
-    const entry = await Items.create(data);
+    const entry = await Deliveryoptions.create(data);
 
     // Create relational data and return the entry.
-    return Items.updateRelations({ _id: entry.id, values: relations });
+    return Deliveryoptions.updateRelations({ _id: entry.id, values: relations });
   },
 
   /**
-   * Promise to edit a/an items.
+   * Promise to edit a/an deliveryoptions.
    *
    * @return {Promise}
    */
 
   edit: async (params, values) => {
     // Extract values related to relational data.
-    const relations = _.pick(values, Items.associations.map(a => a.alias));
-    const data = _.omit(values, Items.associations.map(a => a.alias));
+    const relations = _.pick(values, Deliveryoptions.associations.map(a => a.alias));
+    const data = _.omit(values, Deliveryoptions.associations.map(a => a.alias));
 
     // Update entry with no-relational data.
-    const entry = await Items.updateOne(params, data, { multi: true });
+    const entry = await Deliveryoptions.updateOne(params, data, { multi: true });
 
     // Update relational data and return the entry.
-    return Items.updateRelations(Object.assign(params, { values: relations }));
+    return Deliveryoptions.updateRelations(Object.assign(params, { values: relations }));
   },
 
   /**
-   * Promise to remove a/an items.
+   * Promise to remove a/an deliveryoptions.
    *
    * @return {Promise}
    */
 
   remove: async params => {
     // Select field to populate.
-    const populate = Items.associations
+    const populate = Deliveryoptions.associations
       .filter(ast => ast.autoPopulate !== false)
       .map(ast => ast.alias)
       .join(' ');
 
     // Note: To get the full response of Mongo, use the `remove()` method
     // or add spent the parameter `{ passRawResult: true }` as second argument.
-    const data = await Items
+    const data = await Deliveryoptions
       .findOneAndRemove(params, {})
       .populate(populate);
 
@@ -129,7 +143,7 @@ module.exports = {
     }
 
     await Promise.all(
-      Items.associations.map(async association => {
+      Deliveryoptions.associations.map(async association => {
         if (!association.via || !data._id || association.dominant) {
           return true;
         }
@@ -150,22 +164,22 @@ module.exports = {
   },
 
   /**
-   * Promise to search a/an items.
+   * Promise to search a/an deliveryoptions.
    *
    * @return {Promise}
    */
 
   search: async (params) => {
     // Convert `params` object to filters compatible with Mongo.
-    const filters = strapi.utils.models.convertParams('items', params);
+    const filters = strapi.utils.models.convertParams('deliveryoptions', params);
     // Select field to populate.
-    const populate = Items.associations
+    const populate = Deliveryoptions.associations
       .filter(ast => ast.autoPopulate !== false)
       .map(ast => ast.alias)
       .join(' ');
 
-    const $or = Object.keys(Items.attributes).reduce((acc, curr) => {
-      switch (Items.attributes[curr].type) {
+    const $or = Object.keys(Deliveryoptions.attributes).reduce((acc, curr) => {
+      switch (Deliveryoptions.attributes[curr].type) {
         case 'integer':
         case 'float':
         case 'decimal':
@@ -189,7 +203,7 @@ module.exports = {
       }
     }, []);
 
-    return Items
+    return Deliveryoptions
       .find({ $or })
       .sort(filters.sort)
       .skip(filters.start)

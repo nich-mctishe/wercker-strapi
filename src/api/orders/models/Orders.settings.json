@@ -12,7 +12,7 @@
     "number": {
       "type": "string"
     },
-    "cost": {
+    "total": {
       "type": "decimal",
       "required": true
     },
@@ -30,10 +30,6 @@
     },
     "paid": {
       "type": "boolean"
-    },
-    "items": {
-      "collection": "items",
-      "via": "order"
     },
     "billing-address": {
       "type": "text",
@@ -67,6 +63,26 @@
     },
     "shipped": {
       "type": "boolean"
+    },
+    "deliveryoptions": {
+      "model": "deliveryoptions"
+    },
+    "billingcountry": {
+      "type": "string",
+      "required": true
+    },
+    "subtotal": {
+      "type": "decimal"
+    },
+    "shippingcountry": {
+      "type": "string",
+      "required": true
+    },
+    "items": {
+      "type": "text"
+    },
+    "exceptions": {
+      "type": "text"
     }
   }
 }

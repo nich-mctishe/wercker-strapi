@@ -20,18 +20,22 @@ module.exports = {
    * @return {Promise}
    */
 
-  fetchAll: (params, populate) => {
+  fetchAll: async (params, populate) => {
     const filters = convertRestQueryParams(params);
-    const populateOpt = populate || Products.associations
+    const populateOpt = await (populate || Products.associations)
       .filter(ast => ast.autoPopulate !== false)
       .map(ast => ast.alias)
 
-    return buildQuery({
+    return await buildQuery({
       model: Products,
       filters,
       populate: populateOpt,
     });
   },
+
+  // populate: async (params) => {
+  //   Products.find()
+  // }
 
   /**
    * Promise to fetch a/an products.

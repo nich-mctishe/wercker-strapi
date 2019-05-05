@@ -4,6 +4,13 @@
  * Lifecycle callbacks for the `Items` model.
  */
 
+ const beforeCreateOrUpdate = async (model) => {
+   const data = model['_update'] || model
+   const product = await strapi.services.products.fetch({ _id: data.product })
+
+   data.summary = `${data.quantity} x ${product.Name}${(product.sku ? '(' + product.sku + ')' : '')} ${data.size}`
+ }
+
 module.exports = {
   // Before saving a value.
   // Fired before an `insert` or `update` query.
@@ -31,6 +38,7 @@ module.exports = {
   // Before creating a value.
   // Fired before an `insert` query.
   // beforeCreate: async (model) => {},
+  beforeCreate: beforeCreateOrUpdate,
 
   // After creating a value.
   // Fired after an `insert` query.
@@ -39,6 +47,7 @@ module.exports = {
   // Before updating a value.
   // Fired before an `update` query.
   // beforeUpdate: async (model) => {},
+  beforeUpdate: beforeCreateOrUpdate,
 
   // After updating a value.
   // Fired after an `update` query.

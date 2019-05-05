@@ -12,8 +12,8 @@ module.exports = {
   // beforeSave: async (model) => {},
   beforeSave: async (model) => {
     // update slug to be title
-    if (!model.slug) {
-      model.slug = slugify(model.name)
+    if (!model.slug || !model.slug.length) {
+      model.slug = slugify(model.name).toLowerCase()
     }
   }
 
