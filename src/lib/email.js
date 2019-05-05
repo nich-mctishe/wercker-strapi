@@ -102,10 +102,10 @@ module.exports = class {
               date: `${this.placed.getDate()}\\${this.placed.getMonth()}\\${this.placed.getFullYear().toString().substr(-2)}`,
               time: `${this.placed.getHours()}:${this.placed.getMinutes()}:${this.placed.getSeconds()}`,
               items: this.summary(),
-              subtotal: this.data.subtotal.toFixed(2),
+              subtotal: Number(this.data.subtotal).toFixed(2),
               deliveryService: this.delivery.service,
-              deliveryCost: this.delivery.cost.toFixed(2),
-              total: this.data.total.toFixed(2)
+              deliveryCost: Number(this.delivery.cost).toFixed(2),
+              total: Number(this.data.total).toFixed(2)
             }
           },
           copy: {
