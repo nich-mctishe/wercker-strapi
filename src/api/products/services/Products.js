@@ -33,9 +33,32 @@ module.exports = {
     });
   },
 
-  // populate: async (params) => {
-  //   Products.find()
-  // }
+  preview: async _ => {
+    // Select field to populate.
+    const populate = Products.associations
+      .filter(ast => ast.autoPopulate !== false)
+      .map(ast => ast.alias)
+      .join(' ')
+
+    const products =  await Products.find({})
+      .populate(populate)
+      .lean()
+
+    return products.map(product => {
+      let image = null
+
+      if (product.images && product.images.length) {
+          image = product.images[0].url
+      }
+
+      return {
+        _id: product.id,
+        Name: product.Name,
+        price: product.price,
+        image: image
+      }
+    })
+  },
 
   /**
    * Promise to fetch a/an products.

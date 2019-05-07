@@ -23,6 +23,15 @@ module.exports = {
   },
 
   /**
+   * Retrieve short records of products.
+   *
+   * @return {Object|Array}
+   */
+  preview: async (ctx, next, { populate } = {}) => {
+    return strapi.services.products.preview()
+  },
+
+  /**
    * Retrieve a products record.
    *
    * @return {Object}
