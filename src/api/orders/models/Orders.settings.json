@@ -64,6 +64,9 @@
     "shipped": {
       "type": "boolean"
     },
+    "postaltrackingnumber": {
+      "type": "string"
+    },
     "deliveryoptions": {
       "model": "deliveryoptions"
     },

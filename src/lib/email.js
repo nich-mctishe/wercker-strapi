@@ -46,7 +46,8 @@ const send = async (options, address, callback) => {
 const subjects = {
   saved: 'Your basket from Rasha Swais has been saved',
   placed: 'Your order from Rasha Swais',
-  shipped: 'Your order from Rasha Swais has been shipped'
+  shipped: 'Your order from Rasha Swais has been shipped',
+  rasha: 'Another Rasha Swais order for you to process'
 }
 
 module.exports = class {
@@ -96,7 +97,10 @@ module.exports = class {
       html: buildEmail(getEmailHtml('template'), {
         vars: {
           content: {
-            template: getEmailHtml('order'),
+            template: buildHtml(getEmailHtml('order'), {
+              trackingCode: this.data.trackingCode || '',
+              order: this.data.number
+            }),
             vars: {
               intro: getEmailHtml(master + '-intro'),
               date: `${this.placed.getDate()}\\${this.placed.getMonth()}\\${this.placed.getFullYear().toString().substr(-2)}`,
@@ -128,6 +132,10 @@ module.exports = class {
   }
 
   async send (master, callback) {
-    return await send(this.build(master), this.data.email, callback)
+    return await send(
+      this.build(master),
+      master === 'rasha' ? 'rashaswais@gmail.com' : this.data.email,
+      callback
+    )
   }
 }

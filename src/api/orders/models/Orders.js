@@ -33,7 +33,7 @@ const handleItems = {
       } else {
         identifier.Name = start[0].split(' (')[0]
       }
-      
+
       return {
         order: id,
         product: await getProduct(identifier),
@@ -112,6 +112,7 @@ const afterCreateOrUpdate = async (model, result) => {
    if (data.paid && !data.shipped) {
      // send out order conf email with run through, addresses and let know when shipping will happen
      await send('placed', data)
+     await send('rasha', data)
    }
 
    if (data.shipped) {
