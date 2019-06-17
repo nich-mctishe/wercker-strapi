@@ -47,7 +47,7 @@ const subjects = {
   saved: 'Your basket from Rasha Swais has been saved',
   placed: 'Your order from Rasha Swais',
   shipped: 'Your order from Rasha Swais has been shipped',
-  rasha: 'Another Rasha Swais order for you to process'
+  admin: 'Another Rasha Swais order for you to process'
 }
 
 module.exports = class {
@@ -134,7 +134,7 @@ module.exports = class {
   async send (master, callback) {
     return await send(
       this.build(master),
-      master === 'rasha' ? 'rashaswais@gmail.com' : this.data.email,
+      master === 'admin' ? 'rashaswais@gmail.com' : this.data.email,
       callback
     )
   }
