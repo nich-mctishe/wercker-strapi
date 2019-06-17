@@ -99,7 +99,7 @@ module.exports = class {
           content: {
             template: buildEmail(getEmailHtml('order'), {
               vars: {
-                trackingCode: this.data.trackingCode || '',
+                trackingCode: this.data.postaltrackingnumber || '',
                 order: this.data.number
               }
             }),
