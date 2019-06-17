@@ -16,6 +16,8 @@ const buildEmail = (template, variables) => {
   return template
 }
 
+const formatAddress = address => address.replace(/\n/g, '<br>')
+
 const send = async (options, address, callback) => {
   const { MAILGUN_DOMAIN, MAILGUN_API_KEY } = process.env
 
@@ -97,14 +99,14 @@ module.exports = class {
       html: buildEmail(getEmailHtml('template'), {
         vars: {
           content: {
-            template: buildEmail(getEmailHtml('order'), {
-              vars: {
-                trackingCode: this.data.postaltrackingnumber || '',
-                order: this.data.number
-              }
-            }),
+            template: getEmailHtml('order'),
             vars: {
-              intro: getEmailHtml(master + '-intro'),
+              intro: buildEmail(getEmailHtml(master + '-intro'), {
+                vars: {
+                  trackingCode: this.data.postaltrackingnumber || '',
+                  order: this.data.number
+                }
+              }),
               date: `${this.placed.getDate()}\\${this.placed.getMonth()}\\${this.placed.getFullYear().toString().substr(-2)}`,
               time: `${this.placed.getHours()}:${this.placed.getMinutes()}:${this.placed.getSeconds()}`,
               items: this.summary(),
@@ -122,8 +124,8 @@ module.exports = class {
               baseUrl: process.env.SITE_URL,
               orderId: this.data.id,
               phone: this.data.phone,
-              billingAddress: this.data['billing-address'],
-              shippingAddress: this.data['shipping-address']
+              billingAddress: formatAddress(this.data['billing-address']),
+              shippingAddress: formatAddress(this.data['shipping-address'])
             }
           },
           socials: this.social,
