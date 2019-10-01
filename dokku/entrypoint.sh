@@ -8,9 +8,9 @@ npm install --production
 
 npm run postinstall
 
-# npm link strapi-helper-plugin
+npm link strapi-helper-plugin
 
-# npm run setup --plugins
-# npm run setup
+npm run setup --plugins
+npm run setup
 
 NODE_ENV=production npm start
