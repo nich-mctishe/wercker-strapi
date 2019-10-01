@@ -45,6 +45,12 @@
     },
     "sku": {
       "type": "string"
+    },
+    "gender": {
+      "model": "gender"
+    },
+    "category": {
+      "model": "category"
     }
   }
 }
