@@ -33,7 +33,7 @@ module.exports = {
     });
   },
 
-  preview: async _ => {
+  preview: async limit => {
     // Select field to populate.
     const populate = Products.associations
       .filter(ast => ast.autoPopulate !== false)
@@ -42,6 +42,8 @@ module.exports = {
 
     const products =  await Products.find({})
       .populate(populate)
+      .sort({ 'createdAt': -1 })
+      .limit(limit || 0)
       .lean()
 
     return products.map(product => {
@@ -54,7 +56,7 @@ module.exports = {
       return {
         _id: product.id,
         Name: product.Name,
-        price: product.price,
+        cost: product.cost,
         image: image
       }
     })

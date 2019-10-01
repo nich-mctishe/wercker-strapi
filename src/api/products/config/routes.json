@@ -10,7 +10,7 @@
     },
     {
       "method": "GET",
-      "path": "/products/preview",
+      "path": "/products/preview/:num",
       "handler": "Products.preview",
       "config": {
         "policies": []

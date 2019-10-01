@@ -28,7 +28,7 @@ module.exports = {
    * @return {Object|Array}
    */
   preview: async (ctx, next, { populate } = {}) => {
-    return strapi.services.products.preview()
+    return strapi.services.products.preview(ctx.params.num)
   },
 
   /**
