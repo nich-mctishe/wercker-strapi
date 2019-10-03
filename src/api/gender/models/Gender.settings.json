@@ -1,6 +1,6 @@
 {
   "connection": "default",
-  "collectionName": "",
+  "collectionName": "gender",
   "info": {
     "name": "gender",
     "description": "This is the gender the product is built for"
@@ -15,6 +15,9 @@
     "slug": {
       "type": "string",
       "unique": true
+    },
+    "Order": {
+      "type": "integer"
     }
   }
 }

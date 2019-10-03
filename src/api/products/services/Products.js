@@ -43,7 +43,7 @@ module.exports = {
     const products =  await Products.find({})
       .populate(populate)
       .sort({ 'createdAt': -1 })
-      .limit(limit || 0)
+      .limit(ParseInt(limit) || 0)
       .lean()
 
     return products.map(product => {

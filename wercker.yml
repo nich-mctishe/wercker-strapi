@@ -49,6 +49,9 @@ dev:
     - script:
         name: run
         code: |
+          # npm link strapi-helper-plugin
+          # yarn setup
+          # yarn postinstall
           touch /var/log/strapi.log
           # yarn start >> /var/log/strapi.log 2>&1 &
           strapi start >> /var/log/strapi.log 2>&1 &
